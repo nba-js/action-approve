@@ -21,4 +21,4 @@ jobs:
       
       - id: echo-members
         run: |
-          echo "${{ steps.get-members.outputs.secret-number }}"
+          echo "${{ github.repository_owner }} ${{ steps.get-members.outputs.secret-number }}"
