@@ -18,6 +18,7 @@ jobs:
           org_slug: ${{ github.repository_owner }}
           team_slug: ApproveTeam
           token: ${{ secrets.GITHUB_TOKEN }}
-      - id: echo members
+      
+      - id: echo-members
         run: |
           echo "${{ steps.get-members.outputs.secret-number }}"
