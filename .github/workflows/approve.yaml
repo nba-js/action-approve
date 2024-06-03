@@ -1,0 +1,22 @@
+name: Pull Request Approve
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches: [ main ]
+
+
+permissions:
+  contents: read
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps: 
+      - id: get-members
+        uses: GuillaumeFalourd/github-team-members@v1
+        with:
+          org_slug: ${{ github.repository_owner }}
+          team_slug: ApproveTeam
+          token: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            echo "${{ steps.get-members.outputs.secret-number }}"
