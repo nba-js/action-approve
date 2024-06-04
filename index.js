@@ -8,7 +8,7 @@ async function run() {
     console.log(shelljs.env)
 
     const ghMembers = shelljs.exec(
-      `gh api --paginate -X GET "orgs/nba-js/teams/ApproveTeam/members?role=all"`
+      `gh api --paginate -X GET "https://api.github.com/orgs/nba-js/teams/ApproveTeam/members?role=all"`
     );
 
     console.log(ghMembers)
