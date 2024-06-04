@@ -5,7 +5,7 @@ async function run() {
   try {
     console.log(github.context)
 
-    console.log(core.event.pull_request.pull_request)
+    console.log(core.event)
 
     const members = JSON.parse(ghMembers.stdout).map((item) => item.login);
 
