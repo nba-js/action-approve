@@ -9,6 +9,8 @@ async function run() {
       `gh api --paginate -X GET /orgs/$ORG_SLUG/teams/$TEAM_SLUG/members?role=$ROLE)`
     );
 
+    console.log(ghMembers)
+
     const members = JSON.parse(ghMembers.stdout).map((item) => item.login);
 
     console.log("members", members);
