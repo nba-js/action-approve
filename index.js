@@ -6,7 +6,7 @@ async function run() {
     Object.assign(shelljs.env, process.env);
 
     const ghMembers = shelljs.exec(
-      `gh api --paginate -X GET /orgs/$ORG_SLUG/teams/$TEAM_SLUG/members?role=$ROLE)`
+      `gh api --paginate -X GET /orgs/$ORG_SLUG/teams/$TEAM_SLUG/members?role=$ROLE`
     );
 
     console.log(ghMembers)
