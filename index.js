@@ -1,17 +1,11 @@
 const core = require("@actions/core");
-const shelljs = require("shelljs");
+const github = require('@actions/github')
 
 async function run() {
   try {
-    Object.assign(shelljs.env, process.env);
+    console.log(github.context)
 
-    console.log(shelljs.env)
-
-    const ghMembers = shelljs.exec(
-      `gh api --paginate -X GET "https://api.github.com/orgs/nba-js/teams/ApproveTeam/members?role=all"`
-    );
-
-    console.log(ghMembers)
+    console.log(core.event.pull_request.pull_request)
 
     const members = JSON.parse(ghMembers.stdout).map((item) => item.login);
 
