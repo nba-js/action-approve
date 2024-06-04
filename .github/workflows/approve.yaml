@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - id: get-members
-        uses: GuillaumeFalourd/github-team-members@v1
-        with:
-          org_slug: ${{ github.repository_owner }}
-          team_slug: ApproveTeam
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG_SLUG: ${{ github.repository_owner }}
+          TEAM_SLUG: ApproveTeam
+          ROLE: all
+        run: |
+          node main.js
       
       - id: echo-members
         run: |
