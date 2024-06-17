@@ -42,6 +42,7 @@ jobs:
           TEAM_SLUG: ApproveTeam
           ROLE: all
         run: |
+          gh auth status
           node index.js
       
       - id: echo-members
